@@ -1,7 +1,7 @@
 const fs =require("fs")
 var path = require("path");
 
-module.exports =(app)=>{
+module.exports = (app)=>{
     
     app.get("/notes", function(req, res) {
         res.sendfile(path.join(__dirname,"../public/notes.html"))
