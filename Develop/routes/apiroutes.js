@@ -19,7 +19,6 @@ module.exports =(app)=>{
         
         fs.writeFile(path.join(__dirname,"../db/db.json"),JSON.stringify
 
-
         (dbWrite),function(err){
 
           if(err) throw err
@@ -28,8 +27,20 @@ module.exports =(app)=>{
         })
         // res.json(dbWrite)
       });
-      // add error if something happens
-      
+
+      // delete notes
+      app.delete("/api/notes/:id", (req, res) => {
+        
+        removeNote(req.body.dbWrite)
+        
+        fs.deletefile(path.join(__dirname,"../db/db.json"),JSON.stringify
+        (dbWrite),(err)=>{
+
+          if(err) throw err
+            // if no err happens write the note
+          res.json(dbWrite)
+        })
+     });
 
 }
 // console.log(dbWrite)
