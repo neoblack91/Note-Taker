@@ -31,9 +31,9 @@ module.exports =(app)=>{
       // delete notes
       app.delete("/api/notes/:id", (req, res) => {
         
-        removeNote(req.body.dbWrite)
+        deleteNote(req.params.id)
         
-        fs.deletefile(path.join(__dirname,"../db/db.json"),JSON.stringify
+        fs.writefile(path.join(__dirname,"../db/db.json"),JSON.stringify
         (dbWrite),(err)=>{
 
           if(err) throw err
