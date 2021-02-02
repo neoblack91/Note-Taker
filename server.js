@@ -3,7 +3,7 @@ const fs =require("fs")
 var path = require("path");
 
 var app = express()
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 4004;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

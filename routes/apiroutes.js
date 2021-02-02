@@ -25,27 +25,24 @@ module.exports = (app) => {
         res.json(dbWrite);
       }
     );
-    // res.json(dbWrite)
   });
 
   // delete notes
 
-  app.delete("/api/notes/:id", function (req, res){
-    // methods.deleteNote
-    // var notes = dbWrite
-    // console.log(notes)
-    //  console.log(req.params.id)
-    var filterNotes = dbWrite.filter(note=>note.id !== req.params.id)
-    console.log(filterNotes)
-    fs.writefile(
+  app.delete("/api/notes/:id", function (req, res) {
+    var filterNotes = dbWrite.filter((note) => note.id !== req.params.id);
+
+    console.log(filterNotes);
+
+    fs.writeFile(
       path.join(__dirname, "../db/db.json"),
       JSON.stringify(filterNotes),
       function (err) {
         if (err) throw err;
         // if no err happens write the note
-        res.json(dbWrite);
+        res.json(filterNotes);
       }
     );
+    dbWrite.push(filterNotes);
   });
 };
-// console.log(dbWrite)
