@@ -30,19 +30,10 @@ module.exports = (app) => {
   // delete notes
 
   app.delete("/api/notes/:id", function (req, res) {
-    var filterNotes = dbWrite.filter((note) => note.id !== req.params.id);
 
-    console.log(filterNotes);
+    var filterNotes =  req.params.id;
+    dbWrite = dbWrite.filter((noteofdbwrite)=> noteofdbwrite.id != filterNotes)
+    res.json(dbWrite)
 
-    fs.writeFile(
-      path.join(__dirname, "../db/db.json"),
-      JSON.stringify(filterNotes),
-      function (err) {
-        if (err) throw err;
-        // if no err happens write the note
-        res.json(filterNotes);
-      }
-    );
-    dbWrite.push(filterNotes);
   });
 };
