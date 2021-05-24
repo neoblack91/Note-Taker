@@ -39,9 +39,8 @@ I use node, express, and javascript.
 ## Tests
 
 To run test, run the following commands:
- https://vast-falls-25965.herokuapp.com/
+https://vast-falls-25965.herokuapp.com/
 
-undefined
 
 ## Questions
 
